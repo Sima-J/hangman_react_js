@@ -1,0 +1,35 @@
+button{
+    background-color: white; 
+    color: black; 
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid #4CAF50;
+    border-radius: 4px
+}
+button:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+.hint{
+    border: 2px solid green;
+    background-color: rgb(178, 207, 202);
+    width: 40%;
+    margin: auto;
+    margin-top: 4px;
+}
+.displayHint{
+    display: none;
+}
+.cancel{
+    float: right;
+    padding-right: 4px;
+    color: red;
+    cursor: pointer;
+}

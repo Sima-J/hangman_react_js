@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './hangman.css'
+import Hint from '../hint';
 import I0 from "../images/0.png";
 import I1 from "../images/1.PNG";
 import I2 from "../images/2.PNG";
@@ -9,6 +11,7 @@ import I6 from "../images/6.PNG";
 import I7 from "../images/7.PNG";
 import I8 from "../images/8.PNG";
 import I9 from "../images/9.PNG";
+
 
 class Hangman extends Component {
   static defaultProps = {
@@ -50,18 +53,19 @@ class Hangman extends Component {
 
     return (
       <div className="Hangman container">
-        <h1 className='text-center'>Hangman</h1>
-        <div className="float-right">Wrong Guesses: {this.state.wrong} of {this.props.Counter}</div>
-        <div className="text-center">
-          <img src={this.props.Sequence[this.state.wrong]} alt="Loading"/>
-        </div>
-        <div className="text-center">
+        <h1><span className='hangcol'>Hang</span><span className='mancol'>man</span></h1>
+        <div className="">Wrong Guesses: {this.state.wrong} of {this.props.Counter}</div>
+        <div className="">
           <p>Guess the Word</p>
           <p>
             {!over ? this.TriedWords() : this.state.Ans}
           </p>
           
         </div>
+        <div className="text-center">
+          <img width="500" src={this.props.Sequence[this.state.wrong]} alt="Loading"/>
+        </div>
+        <Hint />
       </div>
     )
   }
