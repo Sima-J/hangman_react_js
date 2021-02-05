@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './hangman.css'
-import Hint from '../hint';
+import Hint from '../Hint/hint';
 import I0 from "../images/0.png";
 import I1 from "../images/1.PNG";
 import I2 from "../images/2.PNG";
@@ -15,6 +15,7 @@ import I9 from "../images/9.PNG";
 
 class Hangman extends Component {
   static defaultProps = {
+
     Counter: 10,
     Sequence: [I0, I1, I2, I3, I4, I5, I6, I7, I8,I9]
   }
@@ -30,41 +31,49 @@ class Hangman extends Component {
 
   ManageGuess = a => {
     let Letter = a.target.value;
-    this.setState(st => (
-    {MakeGuess: st.MakeGuess.add(Letter), wrong: st.wrong + (st.Ans.includes(Letter) ? 0 : 1) }));
+    this.setState(po => (
+    {MakeGuess: po.MakeGuess.add(Letter), wrong: po.wrong + (po.Ans.includes(Letter) ? 0 : 1) }));
   }
 
  TriedWords() {
     return this.state.Ans.split("").map(Letter => (this.state.MakeGuess.has(Letter) ? Letter : " _ "));
+  }
+  LetterButtons() {
+    return "abcdefghjklmnopqrstuvwxyz".split("").map(Letter => (
+      <button
+        class='ButtonOfLetter'
+        key={Letter}
+        value={Letter}
+        onClick={this.ManageGuess}
+        disabled={this.state.MakeGuess.has(Letter)}
+      >{Letter} </button>
+    ));
   }
 
 
   render() {
     const over = this.state.wrong >= this.props.Counter;
     const winner = this.TriedWords().join("") === this.state.Ans;
+    let satus=this.LetterButtons();
 
-    // if (winner) {
-    //    = "Congratulation, You WON:)"
-    // }
+     if (winner) {
+     satus  = "Congratulation, You WON:)"
+     }
 
-    // if (over) {
-    //    = "Sorry, You LOST"
-    // }
+    if (over) {
+    satus  = "Sorry, You LOST"
+    }
 
     return (
-      <div className="Hangman container">
-        <h1><span className='hangcol'>Hang</span><span className='mancol'>man</span></h1>
-        <div className="">Wrong Guesses: {this.state.wrong} of {this.props.Counter}</div>
-        <div className="">
-          <p>Guess the Word</p>
-          <p>
-            {!over ? this.TriedWords() : this.state.Ans}
-          </p>
-          
-        </div>
-        <div className="text-center">
-          <img width="500" src={this.props.Sequence[this.state.wrong]} alt="Loading"/>
-        </div>
+      <div className="Hangman">
+        <h1><span className='One'>Hangman</span></h1>
+        <div className="two">Wrong Guesses: {this.state.wrong} / {this.props.Counter}</div>
+        <div className="three">
+          <h3>Take a Guess </h3>
+          <p>{satus}</p>
+
+          <p>{!over ? this.TriedWords() : this.state.Ans}</p> </div>
+        <div className="four"> <img src={this.props.Sequence[this.state.wrong]} alt="Loading"/> </div>
         <Hint />
       </div>
     )

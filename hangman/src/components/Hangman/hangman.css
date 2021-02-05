@@ -1,6 +1,19 @@
-.hangcol{
+.one{
     color: rgb(179, 62, 62);
 }
-.mancol{
-    color: rgb(116, 68, 68);
+img {
+    margin: 25px 0 25px 0px;
+    width: 360px;
+    height:300px;
+    float: center;
+}
+body{
+    --Pattern: #ececec; --Background: #C8C7C7;
+
+  background: linear-gradient(135deg, var(--Background) 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, var(--Background) 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, var(--Background) 25%, transparent 25%),
+    linear-gradient(45deg, var(--Background) 25%, transparent 25%);
+
+  background-size: 100px 100px; background-color: var(--Pattern);
 }

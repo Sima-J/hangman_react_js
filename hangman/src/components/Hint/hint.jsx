@@ -32,12 +32,13 @@ export default class  hint extends React.Component {
     }
     render() {
         return (
-            <>
+            <div>
             <button onClick={this.giveHint}>hint</button>
             <p className={this.state.display? "hint displayHint": "hint"}> 
             The random word is about ... ({this.state.hints[this.state.counter]}) 
             <span onClick={this.cancelhint} className="cancel">x</span></p>
-            </>
+            </div>
+        
         )
     }
 
