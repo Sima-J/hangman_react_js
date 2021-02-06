@@ -4,3 +4,23 @@
 .mancol{
     color: rgb(116, 68, 68);
 }
+.l-btn{
+    padding: 5px 10px;
+}
+.won ,.lost {
+    display: none;
+}
+.woncol{
+    color: green;
+    font-size: 100px;
+}
+.lostcol{
+    color: red;
+    font-size: 70px;
+}
+.guessmargin{
+margin-bottom: 0%;
+}
+.cutmargin{
+    margin-top: 0%;
+}

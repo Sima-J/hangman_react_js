@@ -13,6 +13,7 @@ export default class  hint extends React.Component {
         this.cancelhint = this.cancelhint.bind(this);
     }
     giveHint() {
+
         this.setState({
             counter: this.state.counter+1,
             display: false
@@ -30,10 +31,16 @@ export default class  hint extends React.Component {
             display: true
         })
     }
+    refreshPage(){
+        window.location.reload();
+     }
     render() {
         return (
             <>
-            <button onClick={this.giveHint}>hint</button>
+            <button onClick={this.giveHint} className="hint-button">hint</button>
+
+            <button className="hint-button" onClick={this.refreshPage}>play again</button>
+
             <p className={this.state.display? "hint displayHint": "hint"}> 
             The random word is about ... ({this.state.hints[this.state.counter]}) 
             <span onClick={this.cancelhint} className="cancel">x</span></p>
