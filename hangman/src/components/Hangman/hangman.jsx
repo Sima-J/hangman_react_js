@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './hangman.css'
-import Hint from '../hint';
+import Hint from '../Hint/hint';
 import I0 from "../images/0.png";
 import I1 from "../images/1.PNG";
 import I2 from "../images/2.PNG";
@@ -113,4 +113,3 @@ class Hangman extends Component {
 }
 
 export default Hangman;
-
